@@ -1,0 +1,103 @@
+# depslib dependency file v1.0
+1382099545 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/point-to-point/configure.c
+	<avr/eeprom.h>
+	<util/delay.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1382956793 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/point-to-point/rfm_22_23.h
+
+1382364418 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/point-to-point/modem.h
+
+1382900510 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/point-to-point/rs485.h
+
+1382963960 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/point-to-point/main.c
+	<stdlib.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/sleep.h>
+	<util/delay.h>
+	<string.h>
+	<avr/eeprom.h>
+	<util/atomic.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1382940909 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/point-to-point/modem.c
+	<avr/eeprom.h>
+	<util/delay.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1382963132 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/point-to-point/rfm_22_23.c
+	<avr/io.h>
+	<util/delay.h>
+	"modem.h"
+	"rfm_22_23.h"
+
+1382963423 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/point-to-point/rs485.c
+	<avr/interrupt.h>
+	<avr/io.h>
+	<util/delay.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1382101116 source:/home/dltech/Google Диск/Projects/Ленин/firmware/point-to-point/configure.c
+	<avr/eeprom.h>
+	<util/delay.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1383054316 /home/dltech/Google Диск/Projects/Ленин/firmware/point-to-point/rfm_22_23.h
+
+1386737449 /home/dltech/Google Диск/Projects/Ленин/firmware/point-to-point/rs485.h
+
+1383054312 /home/dltech/Google Диск/Projects/Ленин/firmware/point-to-point/modem.h
+
+1386740007 source:/home/dltech/Google Диск/Projects/Ленин/firmware/point-to-point/main.c
+	<stdlib.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/sleep.h>
+	<util/delay.h>
+	<string.h>
+	<avr/eeprom.h>
+	<util/atomic.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1386748444 source:/home/dltech/Google Диск/Projects/Ленин/firmware/point-to-point/modem.c
+	<avr/eeprom.h>
+	<util/delay.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1386746924 source:/home/dltech/Google Диск/Projects/Ленин/firmware/point-to-point/rs485.c
+	<avr/interrupt.h>
+	<avr/io.h>
+	<util/delay.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1389726347 source:/home/dltech/Google Диск/Projects/Ленин/firmware/point-to-point/rfm_22_23.c
+	<avr/io.h>
+	<util/delay.h>
+	"modem.h"
+	"rfm_22_23.h"
+

@@ -1,0 +1,203 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 7265 673D 		.string	"reg="
+  18      00
+  19               		.text
+  20               	.global	main
+  22               	main:
+  23               	.LFB6:
+  24               	.LM1:
+  25 0000 EF92      		push r14
+  26 0002 FF92      		push r15
+  27 0004 0F93      		push r16
+  28 0006 1F93      		push r17
+  29 0008 DF93      		push r29
+  30 000a CF93      		push r28
+  31 000c CDB7      		in r28,__SP_L__
+  32 000e DEB7      		in r29,__SP_H__
+  33 0010 6097      		sbiw r28,16
+  34 0012 0FB6      		in __tmp_reg__,__SREG__
+  35 0014 F894      		cli
+  36 0016 DEBF      		out __SP_H__,r29
+  37 0018 0FBE      		out __SREG__,__tmp_reg__
+  38 001a CDBF      		out __SP_L__,r28
+  39               	/* prologue: function */
+  40               	/* frame size = 16 */
+  41               	.LM2:
+  42 001c 8CE2      		ldi r24,lo8(44)
+  43 001e 87BB      		out 55-32,r24
+  44 0020 88EE      		ldi r24,lo8(1000)
+  45 0022 93E0      		ldi r25,hi8(1000)
+  46               	.LVL0:
+  47               	.LBB18:
+  48               	.LBB19:
+  49               	.LBB20:
+  50               	.LBB21:
+  51               	.LM3:
+  52 0024 28EC      		ldi r18,lo8(200)
+  53 0026 30E0      		ldi r19,hi8(200)
+  54               	.L2:
+  55 0028 F901      		movw r30,r18
+  56               	.LVL1:
+  57               	/* #APP */
+  58               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  59 002a 3197      		1: sbiw r30,1
+  60 002c 01F4      		brne 1b
+  61               	 ;  0 "" 2
+  62               	/* #NOAPP */
+  63               	.LBE21:
+  64               	.LBE20:
+  65               	.LM4:
+  66 002e 0197      		sbiw r24,1
+  67               	.LM5:
+  68 0030 01F4      		brne .L2
+  69               	.LBE19:
+  70               	.LBE18:
+  71               	.LM6:
+  72 0032 8CE0      		ldi r24,lo8(12)
+  73               	.LVL2:
+  74 0034 00D0      		rcall lcd_init
+  75               	.LVL3:
+  76               	.LM7:
+  77 0036 00D0      		rcall rfm_22_init
+  78               	.LM8:
+  79 0038 00D0      		rcall lcd_clrscr
+  80               	.LM9:
+  81 003a 80E0      		ldi r24,lo8(.LC0)
+  82 003c 90E0      		ldi r25,hi8(.LC0)
+  83 003e 00D0      		rcall lcd_puts
+  84 0040 80EA      		ldi r24,lo8(4000)
+  85 0042 9FE0      		ldi r25,hi8(4000)
+  86               	.LVL4:
+  87               	.LBB22:
+  88               	.LBB23:
+  89               	.LBB24:
+  90               	.LBB25:
+  91               	.LM10:
+  92 0044 28EC      		ldi r18,lo8(200)
+  93 0046 30E0      		ldi r19,hi8(200)
+  94               	.L3:
+  95 0048 F901      		movw r30,r18
+  96               	.LVL5:
+  97               	/* #APP */
+  98               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  99 004a 3197      		1: sbiw r30,1
+ 100 004c 01F4      		brne 1b
+ 101               	 ;  0 "" 2
+ 102               	/* #NOAPP */
+ 103               	.LBE25:
+ 104               	.LBE24:
+ 105               	.LM11:
+ 106 004e 0197      		sbiw r24,1
+ 107               	.LM12:
+ 108 0050 01F4      		brne .L3
+ 109               	.LBE23:
+ 110               	.LBE22:
+ 111               	.LM13:
+ 112 0052 87E0      		ldi r24,lo8(7)
+ 113               	.LVL6:
+ 114 0054 64E0      		ldi r22,lo8(4)
+ 115 0056 00D0      		rcall rfm_22_write
+ 116               	.LVL7:
+ 117 0058 10E0      		ldi r17,lo8(0)
+ 118               	.LVL8:
+ 119               	.LM14:
+ 120 005a 7E01      		movw r14,r28
+ 121 005c 0894      		sec
+ 122 005e E11C      		adc r14,__zero_reg__
+ 123 0060 F11C      		adc r15,__zero_reg__
+ 124               	.L4:
+ 125               	.LM15:
+ 126 0062 84E0      		ldi r24,lo8(4)
+ 127 0064 60E0      		ldi r22,lo8(0)
+ 128 0066 00D0      		rcall lcd_gotoxy
+ 129               	.LM16:
+ 130 0068 86E2      		ldi r24,lo8(38)
+ 131 006a 00D0      		rcall rfm_22_read
+ 132               	.LM17:
+ 133 006c 012F      		mov r16,r17
+ 134 006e 10E0      		ldi r17,lo8(0)
+ 135               	.LVL9:
+ 136 0070 080F      		add r16,r24
+ 137 0072 111D      		adc r17,__zero_reg__
+ 138               	.LVL10:
+ 139 0074 1595      		asr r17
+ 140 0076 0795      		ror r16
+ 141 0078 102F      		mov r17,r16
+ 142               	.LVL11:
+ 143               	.LM18:
+ 144 007a 90E0      		ldi r25,lo8(0)
+ 145 007c B701      		movw r22,r14
+ 146 007e 4AE0      		ldi r20,lo8(10)
+ 147 0080 50E0      		ldi r21,hi8(10)
+ 148 0082 00D0      		rcall utoa
+ 149               	.LVL12:
+ 150               	.LM19:
+ 151 0084 C701      		movw r24,r14
+ 152 0086 00D0      		rcall lcd_puts
+ 153               	.LM20:
+ 154 0088 80E2      		ldi r24,lo8(32)
+ 155 008a 00D0      		rcall lcd_putc
+ 156               	.LM21:
+ 157 008c 82E0      		ldi r24,lo8(2)
+ 158 008e 00D0      		rcall rfm_22_read
+ 159               	.LM22:
+ 160 0090 90E0      		ldi r25,lo8(0)
+ 161 0092 B701      		movw r22,r14
+ 162 0094 42E0      		ldi r20,lo8(2)
+ 163 0096 50E0      		ldi r21,hi8(2)
+ 164 0098 00D0      		rcall utoa
+ 165               	.LM23:
+ 166 009a C701      		movw r24,r14
+ 167 009c 00D0      		rcall lcd_puts
+ 168               	.LM24:
+ 169 009e 84E0      		ldi r24,lo8(4)
+ 170 00a0 61E0      		ldi r22,lo8(1)
+ 171 00a2 00D0      		rcall lcd_gotoxy
+ 172               	.LM25:
+ 173 00a4 802F      		mov r24,r16
+ 174 00a6 90E0      		ldi r25,lo8(0)
+ 175 00a8 B701      		movw r22,r14
+ 176 00aa 4AE0      		ldi r20,lo8(10)
+ 177 00ac 50E0      		ldi r21,hi8(10)
+ 178 00ae 00D0      		rcall utoa
+ 179               	.LM26:
+ 180 00b0 C701      		movw r24,r14
+ 181 00b2 00D0      		rcall lcd_puts
+ 182 00b4 00C0      		rjmp .L4
+ 183               	.LFE6:
+ 185               		.comm input_packet,256,1
+ 186               		.comm output_packet,256,1
+ 211               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Dltech\AppData\Local\Temp/ccIRPaVa.s:2      *ABS*:0000003f __SREG__
+C:\Users\Dltech\AppData\Local\Temp/ccIRPaVa.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Dltech\AppData\Local\Temp/ccIRPaVa.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Dltech\AppData\Local\Temp/ccIRPaVa.s:5      *ABS*:00000034 __CCP__
+C:\Users\Dltech\AppData\Local\Temp/ccIRPaVa.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Dltech\AppData\Local\Temp/ccIRPaVa.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Dltech\AppData\Local\Temp/ccIRPaVa.s:22     .text:00000000 main
+                            *COM*:00000100 input_packet
+                            *COM*:00000100 output_packet
+
+UNDEFINED SYMBOLS
+lcd_init
+rfm_22_init
+lcd_clrscr
+lcd_puts
+rfm_22_write
+lcd_gotoxy
+rfm_22_read
+utoa
+lcd_putc
+__do_copy_data
+__do_clear_bss

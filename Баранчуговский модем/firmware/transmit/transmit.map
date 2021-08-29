@@ -1,0 +1,498 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                              transmit.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                              transmit.o (__do_clear_bss)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strcpy.o)
+                              transmit.o (strcpy)
+
+Allocating common symbols
+Common symbol       size              file
+
+buffer              0x100             transmit.o
+header              0x3               transmit.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+LOAD transmit.o
+LOAD lcd.o
+LOAD rfm_22_23.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libm.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x4d2
+ *(.vectors)
+ .vectors       0x00000000       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000026                . = ALIGN (0x2)
+                0x00000026                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000026        0x0 linker stubs
+ *(.trampolines*)
+                0x00000026                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000026                __ctors_start = .
+ *(.ctors)
+                0x00000026                __ctors_end = .
+                0x00000026                __dtors_start = .
+ *(.dtors)
+                0x00000026                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000026        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000026                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000026        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000032       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                0x00000032                __do_copy_data
+ .init4         0x00000048       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x00000048                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000058        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init9)
+ *(.text)
+ .text          0x0000005c        0x2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x0000005c                __vector_1
+                0x0000005c                __vector_12
+                0x0000005c                __bad_interrupt
+                0x0000005c                __vector_6
+                0x0000005c                __vector_3
+                0x0000005c                __vector_11
+                0x0000005c                __vector_13
+                0x0000005c                __vector_17
+                0x0000005c                __vector_7
+                0x0000005c                __vector_5
+                0x0000005c                __vector_4
+                0x0000005c                __vector_9
+                0x0000005c                __vector_2
+                0x0000005c                __vector_15
+                0x0000005c                __vector_8
+                0x0000005c                __vector_14
+                0x0000005c                __vector_10
+                0x0000005c                __vector_16
+                0x0000005c                __vector_18
+ .text          0x0000005e       0x2c transmit.o
+                0x0000005e                main
+ .text          0x0000008a      0x1c6 lcd.o
+                0x00000154                lcd_data
+                0x00000164                lcd_gotoxy
+                0x00000184                lcd_putc
+                0x0000017e                lcd_home
+                0x00000178                lcd_clrscr
+                0x00000172                lcd_getxy
+                0x000001a8                lcd_puts
+                0x000001cc                lcd_puts_p
+                0x000001e6                lcd_init
+                0x00000144                lcd_command
+ .text          0x00000250      0x270 rfm_22_23.o
+                0x000002ba                rfm_22_read
+                0x00000482                rfm_22_receive
+                0x0000027a                rfm_22_write_burst
+                0x000002a2                rfm_22_write
+                0x00000426                rfm_22_transmit
+                0x00000250                rfm_22_read_burst
+                0x000002d4                rfm_22_init
+ .text          0x000004c0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text          0x000004c0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text          0x000004c0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .text          0x000004c0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strcpy.o)
+                0x000004c0                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x000004c0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x000004c0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000004c0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x000004c0        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strcpy.o)
+                0x000004c0                strcpy
+                0x000004ce                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000004ce        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                0x000004ce                exit
+                0x000004ce                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000004ce        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000004d2                _etext = .
+
+.data           0x00800060       0x32 load address 0x000004d2
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .data          0x00800060       0x22 transmit.o
+                0x00800081                device_address
+                0x00800080                master_address
+ .data          0x00800082        0x0 lcd.o
+ .data          0x00800082        0xf rfm_22_23.o
+ .data          0x00800091        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .data          0x00800091        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .data          0x00800091        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .data          0x00800091        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strcpy.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800092                . = ALIGN (0x2)
+ *fill*         0x00800091        0x1 00
+                0x00800092                _edata = .
+                0x00800092                PROVIDE (__data_end, .)
+
+.bss            0x00800092      0x103
+                0x00800092                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x00800092        0x0 transmit.o
+ .bss           0x00800092        0x0 lcd.o
+ .bss           0x00800092        0x0 rfm_22_23.o
+ .bss           0x00800092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .bss           0x00800092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .bss           0x00800092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x00800092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strcpy.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800092      0x103 transmit.o
+                0x00800092                buffer
+                0x00800192                header
+                0x00800195                PROVIDE (__bss_end, .)
+                0x000004d2                __data_load_start = LOADADDR (.data)
+                0x00000504                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800195        0x0
+                0x00800195                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800195                PROVIDE (__noinit_end, .)
+                0x00800195                _end = .
+                0x00800195                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x60
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 transmit.o
+ .debug_aranges
+                0x00000020       0x20 lcd.o
+ .debug_aranges
+                0x00000040       0x20 rfm_22_23.o
+
+.debug_pubnames
+                0x00000000      0x18c
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x57 transmit.o
+ .debug_pubnames
+                0x00000057       0x9e lcd.o
+ .debug_pubnames
+                0x000000f5       0x97 rfm_22_23.o
+
+.debug_info     0x00000000      0x8fc
+ *(.debug_info)
+ .debug_info    0x00000000      0x10c transmit.o
+ .debug_info    0x0000010c      0x470 lcd.o
+ .debug_info    0x0000057c      0x380 rfm_22_23.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x404
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0x90 transmit.o
+ .debug_abbrev  0x00000090      0x235 lcd.o
+ .debug_abbrev  0x000002c5      0x13f rfm_22_23.o
+
+.debug_line     0x00000000      0x9c8
+ *(.debug_line)
+ .debug_line    0x00000000       0xc5 transmit.o
+ .debug_line    0x000000c5      0x4f5 lcd.o
+ .debug_line    0x000005ba      0x40e rfm_22_23.o
+
+.debug_frame    0x00000000      0x180
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x20 transmit.o
+ .debug_frame   0x00000020       0xe0 lcd.o
+ .debug_frame   0x00000100       0x80 rfm_22_23.o
+
+.debug_str      0x00000000      0x2bf
+ *(.debug_str)
+ .debug_str     0x00000000       0xa7 transmit.o
+                                 0xdb (size before relaxing)
+ .debug_str     0x000000a7       0xfe lcd.o
+                                0x1a7 (size before relaxing)
+ .debug_str     0x000001a5      0x11a rfm_22_23.o
+                                0x203 (size before relaxing)
+
+.debug_loc      0x00000000      0x3ca
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x28b lcd.o
+ .debug_loc     0x0000028b      0x13f rfm_22_23.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(transmit.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+__bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__bss_end                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__data_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__do_clear_bss                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                                                  transmit.o
+__do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                                                  rfm_22_23.o
+                                                  transmit.o
+__heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__stack                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_1                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_10                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_11                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_12                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_13                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_14                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_15                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_16                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_17                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_18                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_2                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_3                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_4                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_5                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_6                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_7                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_8                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_9                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+_exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+buffer                                            rfm_22_23.o
+                                                  transmit.o
+device_address                                    transmit.o
+                                                  rfm_22_23.o
+exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+header                                            rfm_22_23.o
+                                                  transmit.o
+lcd_clrscr                                        lcd.o
+lcd_command                                       lcd.o
+lcd_data                                          lcd.o
+lcd_getxy                                         lcd.o
+lcd_gotoxy                                        lcd.o
+lcd_home                                          lcd.o
+lcd_init                                          lcd.o
+                                                  transmit.o
+lcd_putc                                          lcd.o
+lcd_puts                                          lcd.o
+                                                  transmit.o
+lcd_puts_p                                        lcd.o
+main                                              transmit.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+master_address                                    transmit.o
+                                                  rfm_22_23.o
+rfm_22_init                                       rfm_22_23.o
+                                                  transmit.o
+rfm_22_read                                       rfm_22_23.o
+rfm_22_read_burst                                 rfm_22_23.o
+rfm_22_receive                                    rfm_22_23.o
+rfm_22_transmit                                   rfm_22_23.o
+                                                  transmit.o
+rfm_22_write                                      rfm_22_23.o
+rfm_22_write_burst                                rfm_22_23.o
+strcpy                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strcpy.o)
+                                                  transmit.o

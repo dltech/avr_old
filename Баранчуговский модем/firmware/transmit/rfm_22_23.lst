@@ -1,0 +1,569 @@
+   1               		.file	"rfm_22_23.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	rfm_22_read_burst
+  18               	rfm_22_read_burst:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LM2:
+  25 0000 C298      		cbi 56-32,2
+  26               	.LM3:
+  27 0002 8FB9      		out 47-32,r24
+  28               	.L2:
+  29               	.LM4:
+  30 0004 8EB1      		in r24,46-32
+  31               	.LVL1:
+  32 0006 8823      		tst r24
+  33 0008 01F0      		breq .L2
+  34 000a FB01      		movw r30,r22
+  35               	.LVL2:
+  36 000c 90E0      		ldi r25,lo8(0)
+  37               	.LVL3:
+  38               	.LM5:
+  39 000e 2FEF      		ldi r18,lo8(-1)
+  40 0010 00C0      		rjmp .L3
+  41               	.L5:
+  42 0012 2FB9      		out 47-32,r18
+  43               	.LM6:
+  44 0014 8FB1      		in r24,47-32
+  45 0016 8083      		st Z,r24
+  46               	.L4:
+  47               	.LM7:
+  48 0018 8EB1      		in r24,46-32
+  49 001a 8823      		tst r24
+  50 001c 01F0      		breq .L4
+  51               	.LM8:
+  52 001e 9F5F      		subi r25,lo8(-(1))
+  53 0020 3196      		adiw r30,1
+  54               	.L3:
+  55 0022 9417      		cp r25,r20
+  56 0024 00F0      		brlo .L5
+  57               	.LM9:
+  58 0026 C29A      		sbi 56-32,2
+  59               	/* epilogue start */
+  60               	.LM10:
+  61 0028 0895      		ret
+  62               	.LFE6:
+  64               	.global	rfm_22_write_burst
+  66               	rfm_22_write_burst:
+  67               	.LFB7:
+  68               	.LM11:
+  69               	.LVL4:
+  70               	/* prologue: function */
+  71               	/* frame size = 0 */
+  72               	.LM12:
+  73 002a C298      		cbi 56-32,2
+  74               	.LM13:
+  75 002c 8068      		ori r24,lo8(-128)
+  76               	.LVL5:
+  77 002e 8FB9      		out 47-32,r24
+  78               	.L10:
+  79               	.LM14:
+  80 0030 8EB1      		in r24,46-32
+  81 0032 8823      		tst r24
+  82 0034 01F0      		breq .L10
+  83 0036 FB01      		movw r30,r22
+  84               	.LVL6:
+  85 0038 90E0      		ldi r25,lo8(0)
+  86               	.LVL7:
+  87 003a 00C0      		rjmp .L11
+  88               	.L13:
+  89               	.LM15:
+  90 003c 8081      		ld r24,Z
+  91 003e 8FB9      		out 47-32,r24
+  92               	.L12:
+  93               	.LM16:
+  94 0040 8EB1      		in r24,46-32
+  95 0042 8823      		tst r24
+  96 0044 01F0      		breq .L12
+  97               	.LM17:
+  98 0046 9F5F      		subi r25,lo8(-(1))
+  99 0048 3196      		adiw r30,1
+ 100               	.L11:
+ 101 004a 9417      		cp r25,r20
+ 102 004c 00F0      		brlo .L13
+ 103               	.LM18:
+ 104 004e C29A      		sbi 56-32,2
+ 105               	/* epilogue start */
+ 106               	.LM19:
+ 107 0050 0895      		ret
+ 108               	.LFE7:
+ 110               	.global	rfm_22_write
+ 112               	rfm_22_write:
+ 113               	.LFB8:
+ 114               	.LM20:
+ 115               	.LVL8:
+ 116               	/* prologue: function */
+ 117               	/* frame size = 0 */
+ 118               	.LM21:
+ 119 0052 C298      		cbi 56-32,2
+ 120               	.LM22:
+ 121 0054 8068      		ori r24,lo8(-128)
+ 122               	.LVL9:
+ 123 0056 8FB9      		out 47-32,r24
+ 124               	.L18:
+ 125               	.LM23:
+ 126 0058 8EB1      		in r24,46-32
+ 127 005a 8823      		tst r24
+ 128 005c 01F0      		breq .L18
+ 129               	.LM24:
+ 130 005e 6FB9      		out 47-32,r22
+ 131               	.L19:
+ 132               	.LM25:
+ 133 0060 8EB1      		in r24,46-32
+ 134 0062 8823      		tst r24
+ 135 0064 01F0      		breq .L19
+ 136               	.LM26:
+ 137 0066 C29A      		sbi 56-32,2
+ 138               	/* epilogue start */
+ 139               	.LM27:
+ 140 0068 0895      		ret
+ 141               	.LFE8:
+ 143               	.global	rfm_22_read
+ 145               	rfm_22_read:
+ 146               	.LFB9:
+ 147               	.LM28:
+ 148               	.LVL10:
+ 149               	/* prologue: function */
+ 150               	/* frame size = 0 */
+ 151               	.LM29:
+ 152 006a C298      		cbi 56-32,2
+ 153               	.LM30:
+ 154 006c 8FB9      		out 47-32,r24
+ 155               	.L24:
+ 156               	.LM31:
+ 157 006e 8EB1      		in r24,46-32
+ 158               	.LVL11:
+ 159 0070 8823      		tst r24
+ 160 0072 01F0      		breq .L24
+ 161               	.LM32:
+ 162 0074 8FEF      		ldi r24,lo8(-1)
+ 163 0076 8FB9      		out 47-32,r24
+ 164               	.L25:
+ 165               	.LM33:
+ 166 0078 8EB1      		in r24,46-32
+ 167 007a 8823      		tst r24
+ 168 007c 01F0      		breq .L25
+ 169               	.LM34:
+ 170 007e 8FB1      		in r24,47-32
+ 171               	.LVL12:
+ 172               	.LM35:
+ 173 0080 C29A      		sbi 56-32,2
+ 174               	.LVL13:
+ 175               	/* epilogue start */
+ 176               	.LM36:
+ 177 0082 0895      		ret
+ 178               	.LFE9:
+ 180               	.global	rfm_22_init
+ 182               	rfm_22_init:
+ 183               	.LFB10:
+ 184               	.LM37:
+ 185 0084 DF93      		push r29
+ 186 0086 CF93      		push r28
+ 187 0088 CDB7      		in r28,__SP_L__
+ 188 008a DEB7      		in r29,__SP_H__
+ 189 008c 6797      		sbiw r28,23
+ 190 008e 0FB6      		in __tmp_reg__,__SREG__
+ 191 0090 F894      		cli
+ 192 0092 DEBF      		out __SP_H__,r29
+ 193 0094 0FBE      		out __SREG__,__tmp_reg__
+ 194 0096 CDBF      		out __SP_L__,r28
+ 195               	/* prologue: function */
+ 196               	/* frame size = 23 */
+ 197               	.LM38:
+ 198 0098 DE01      		movw r26,r28
+ 199 009a 1196      		adiw r26,1
+ 200 009c E0E0      		ldi r30,lo8(C.0.1494)
+ 201 009e F0E0      		ldi r31,hi8(C.0.1494)
+ 202 00a0 83E0      		ldi r24,lo8(3)
+ 203               	.L30:
+ 204 00a2 0190      		ld r0,Z+
+ 205 00a4 0D92      		st X+,r0
+ 206 00a6 8150      		subi r24,lo8(-(-1))
+ 207 00a8 01F4      		brne .L30
+ 208               	.LM39:
+ 209 00aa DE01      		movw r26,r28
+ 210 00ac 5296      		adiw r26,18
+ 211 00ae E0E0      		ldi r30,lo8(C.1.1495)
+ 212 00b0 F0E0      		ldi r31,hi8(C.1.1495)
+ 213 00b2 86E0      		ldi r24,lo8(6)
+ 214               	.L31:
+ 215 00b4 0190      		ld r0,Z+
+ 216 00b6 0D92      		st X+,r0
+ 217 00b8 8150      		subi r24,lo8(-(-1))
+ 218 00ba 01F4      		brne .L31
+ 219               	.LM40:
+ 220 00bc 81E1      		ldi r24,lo8(17)
+ 221 00be 8A87      		std Y+10,r24
+ 222 00c0 86E4      		ldi r24,lo8(70)
+ 223 00c2 8B87      		std Y+11,r24
+ 224 00c4 8AE0      		ldi r24,lo8(10)
+ 225 00c6 8C87      		std Y+12,r24
+ 226 00c8 80E2      		ldi r24,lo8(32)
+ 227 00ca 8D87      		std Y+13,r24
+ 228               	.LM41:
+ 229 00cc 88E2      		ldi r24,lo8(40)
+ 230 00ce 8E87      		std Y+14,r24
+ 231 00d0 85E1      		ldi r24,lo8(21)
+ 232 00d2 8F87      		std Y+15,r24
+ 233 00d4 83E2      		ldi r24,lo8(35)
+ 234 00d6 888B      		std Y+16,r24
+ 235 00d8 82E4      		ldi r24,lo8(66)
+ 236 00da 898B      		std Y+17,r24
+ 237               	.LM42:
+ 238 00dc DE01      		movw r26,r28
+ 239 00de 1496      		adiw r26,4
+ 240 00e0 E0E0      		ldi r30,lo8(C.2.1496)
+ 241 00e2 F0E0      		ldi r31,hi8(C.2.1496)
+ 242 00e4 83E0      		ldi r24,lo8(3)
+ 243               	.L32:
+ 244 00e6 0190      		ld r0,Z+
+ 245 00e8 0D92      		st X+,r0
+ 246 00ea 8150      		subi r24,lo8(-(-1))
+ 247 00ec 01F4      		brne .L32
+ 248               	.LM43:
+ 249 00ee DE01      		movw r26,r28
+ 250 00f0 1796      		adiw r26,7
+ 251 00f2 E0E0      		ldi r30,lo8(C.3.1497)
+ 252 00f4 F0E0      		ldi r31,hi8(C.3.1497)
+ 253 00f6 83E0      		ldi r24,lo8(3)
+ 254               	.L33:
+ 255 00f8 0190      		ld r0,Z+
+ 256 00fa 0D92      		st X+,r0
+ 257 00fc 8150      		subi r24,lo8(-(-1))
+ 258 00fe 01F4      		brne .L33
+ 259               	.LM44:
+ 260 0100 87B3      		in r24,55-32
+ 261 0102 8C62      		ori r24,lo8(44)
+ 262 0104 87BB      		out 55-32,r24
+ 263               	.LM45:
+ 264 0106 BA9A      		sbi 55-32,2
+ 265               	.LM46:
+ 266 0108 C29A      		sbi 56-32,2
+ 267               	.LM47:
+ 268 010a 80E5      		ldi r24,lo8(80)
+ 269 010c 8DB9      		out 45-32,r24
+ 270               	.LM48:
+ 271 010e 87E0      		ldi r24,lo8(7)
+ 272 0110 60E0      		ldi r22,lo8(0)
+ 273 0112 00D0      		rcall rfm_22_write
+ 274               	.LM49:
+ 275 0114 85E0      		ldi r24,lo8(5)
+ 276 0116 6FEF      		ldi r22,lo8(-1)
+ 277 0118 00D0      		rcall rfm_22_write
+ 278               	.LM50:
+ 279 011a 86E0      		ldi r24,lo8(6)
+ 280 011c 6FEF      		ldi r22,lo8(-1)
+ 281 011e 00D0      		rcall rfm_22_write
+ 282               	.LM51:
+ 283 0120 83E0      		ldi r24,lo8(3)
+ 284 0122 00D0      		rcall rfm_22_read
+ 285               	.LM52:
+ 286 0124 84E0      		ldi r24,lo8(4)
+ 287 0126 00D0      		rcall rfm_22_read
+ 288               	.LM53:
+ 289 0128 89E0      		ldi r24,lo8(9)
+ 290 012a 6FE7      		ldi r22,lo8(127)
+ 291 012c 00D0      		rcall rfm_22_write
+ 292               	.LM54:
+ 293 012e 8BE0      		ldi r24,lo8(11)
+ 294 0130 BE01      		movw r22,r28
+ 295 0132 6F5F      		subi r22,lo8(-(1))
+ 296 0134 7F4F      		sbci r23,hi8(-(1))
+ 297 0136 43E0      		ldi r20,lo8(3)
+ 298 0138 00D0      		rcall rfm_22_write_burst
+ 299               	.LM55:
+ 300 013a 8DE6      		ldi r24,lo8(109)
+ 301 013c 6FE1      		ldi r22,lo8(31)
+ 302 013e 00D0      		rcall rfm_22_write
+ 303               	.LM56:
+ 304 0140 8CE1      		ldi r24,lo8(28)
+ 305 0142 65E9      		ldi r22,lo8(-107)
+ 306 0144 00D0      		rcall rfm_22_write
+ 307               	.LM57:
+ 308 0146 8DE1      		ldi r24,lo8(29)
+ 309 0148 60E4      		ldi r22,lo8(64)
+ 310 014a 00D0      		rcall rfm_22_write
+ 311               	.LM58:
+ 312 014c 80E2      		ldi r24,lo8(32)
+ 313 014e BE01      		movw r22,r28
+ 314 0150 6E5E      		subi r22,lo8(-(18))
+ 315 0152 7F4F      		sbci r23,hi8(-(18))
+ 316 0154 46E0      		ldi r20,lo8(6)
+ 317 0156 00D0      		rcall rfm_22_write_burst
+ 318               	.LM59:
+ 319 0158 87E2      		ldi r24,lo8(39)
+ 320 015a 6EE1      		ldi r22,lo8(30)
+ 321 015c 00D0      		rcall rfm_22_write
+ 322               	.LM60:
+ 323 015e 80E3      		ldi r24,lo8(48)
+ 324 0160 6DE8      		ldi r22,lo8(-115)
+ 325 0162 00D0      		rcall rfm_22_write
+ 326               	.LM61:
+ 327 0164 82E3      		ldi r24,lo8(50)
+ 328 0166 BE01      		movw r22,r28
+ 329 0168 665F      		subi r22,lo8(-(10))
+ 330 016a 7F4F      		sbci r23,hi8(-(10))
+ 331 016c 44E0      		ldi r20,lo8(4)
+ 332 016e 00D0      		rcall rfm_22_write_burst
+ 333               	.LM62:
+ 334 0170 86E3      		ldi r24,lo8(54)
+ 335 0172 BE01      		movw r22,r28
+ 336 0174 625F      		subi r22,lo8(-(14))
+ 337 0176 7F4F      		sbci r23,hi8(-(14))
+ 338 0178 44E0      		ldi r20,lo8(4)
+ 339 017a 00D0      		rcall rfm_22_write_burst
+ 340               	.LM63:
+ 341 017c 6091 0000 		lds r22,master_address
+ 342 0180 8DE3      		ldi r24,lo8(61)
+ 343 0182 00D0      		rcall rfm_22_write
+ 344               	.LM64:
+ 345 0184 6091 0000 		lds r22,device_address
+ 346 0188 82E4      		ldi r24,lo8(66)
+ 347 018a 00D0      		rcall rfm_22_write
+ 348               	.LM65:
+ 349 018c 8EE6      		ldi r24,lo8(110)
+ 350 018e 60E1      		ldi r22,lo8(16)
+ 351 0190 00D0      		rcall rfm_22_write
+ 352               	.LM66:
+ 353 0192 8FE6      		ldi r24,lo8(111)
+ 354 0194 62E6      		ldi r22,lo8(98)
+ 355 0196 00D0      		rcall rfm_22_write
+ 356               	.LM67:
+ 357 0198 80E7      		ldi r24,lo8(112)
+ 358 019a BE01      		movw r22,r28
+ 359 019c 6C5F      		subi r22,lo8(-(4))
+ 360 019e 7F4F      		sbci r23,hi8(-(4))
+ 361 01a0 43E0      		ldi r20,lo8(3)
+ 362 01a2 00D0      		rcall rfm_22_write_burst
+ 363               	.LM68:
+ 364 01a4 85E7      		ldi r24,lo8(117)
+ 365 01a6 BE01      		movw r22,r28
+ 366 01a8 695F      		subi r22,lo8(-(7))
+ 367 01aa 7F4F      		sbci r23,hi8(-(7))
+ 368 01ac 43E0      		ldi r20,lo8(3)
+ 369 01ae 00D0      		rcall rfm_22_write_burst
+ 370               	.LM69:
+ 371 01b0 8EE7      		ldi r24,lo8(126)
+ 372 01b2 60E0      		ldi r22,lo8(0)
+ 373 01b4 00D0      		rcall rfm_22_write
+ 374               	.LM70:
+ 375 01b6 80E2      		ldi r24,lo8(32)
+ 376 01b8 00D0      		rcall rfm_22_read
+ 377 01ba 20E0      		ldi r18,lo8(0)
+ 378 01bc 9A89      		ldd r25,Y+18
+ 379 01be 9813      		cpse r25,r24
+ 380 01c0 21E0      		ldi r18,lo8(1)
+ 381               	.L34:
+ 382               	.LM71:
+ 383 01c2 822F      		mov r24,r18
+ 384               	/* epilogue start */
+ 385 01c4 6796      		adiw r28,23
+ 386 01c6 0FB6      		in __tmp_reg__,__SREG__
+ 387 01c8 F894      		cli
+ 388 01ca DEBF      		out __SP_H__,r29
+ 389 01cc 0FBE      		out __SREG__,__tmp_reg__
+ 390 01ce CDBF      		out __SP_L__,r28
+ 391 01d0 CF91      		pop r28
+ 392 01d2 DF91      		pop r29
+ 393 01d4 0895      		ret
+ 394               	.LFE10:
+ 396               	.global	rfm_22_transmit
+ 398               	rfm_22_transmit:
+ 399               	.LFB11:
+ 400               	.LM72:
+ 401               	.LVL14:
+ 402 01d6 0F93      		push r16
+ 403 01d8 1F93      		push r17
+ 404               	/* prologue: function */
+ 405               	/* frame size = 0 */
+ 406 01da 082F      		mov r16,r24
+ 407 01dc 162F      		mov r17,r22
+ 408               	.LM73:
+ 409 01de 8EE3      		ldi r24,lo8(62)
+ 410               	.LVL15:
+ 411 01e0 00D0      		rcall rfm_22_write
+ 412               	.LVL16:
+ 413               	.LM74:
+ 414 01e2 0023      		tst r16
+ 415 01e4 01F0      		breq .L41
+ 416               	.LM75:
+ 417 01e6 88E0      		ldi r24,lo8(8)
+ 418 01e8 61E0      		ldi r22,lo8(1)
+ 419 01ea 00D0      		rcall rfm_22_write
+ 420               	.LM76:
+ 421 01ec 88E0      		ldi r24,lo8(8)
+ 422 01ee 60E0      		ldi r22,lo8(0)
+ 423 01f0 00D0      		rcall rfm_22_write
+ 424               	.LM77:
+ 425 01f2 602F      		mov r22,r16
+ 426 01f4 70E0      		ldi r23,lo8(0)
+ 427               	.LVL17:
+ 428 01f6 6050      		subi r22,lo8(-(buffer))
+ 429 01f8 7040      		sbci r23,hi8(-(buffer))
+ 430               	.LVL18:
+ 431 01fa 8FE7      		ldi r24,lo8(127)
+ 432 01fc 412F      		mov r20,r17
+ 433 01fe 00D0      		rcall rfm_22_write_burst
+ 434               	.LVL19:
+ 435               	.LBB12:
+ 436               	.LBB13:
+ 437               	.LBB14:
+ 438               	.LBB15:
+ 439               	.LM78:
+ 440 0200 80EA      		ldi r24,lo8(4000)
+ 441 0202 9FE0      		ldi r25,hi8(4000)
+ 442               	.LVL20:
+ 443               	/* #APP */
+ 444               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 445 0204 0197      		1: sbiw r24,1
+ 446 0206 01F4      		brne 1b
+ 447               	 ;  0 "" 2
+ 448               	/* #NOAPP */
+ 449 0208 00C0      		rjmp .L42
+ 450               	.LVL21:
+ 451               	.L41:
+ 452               	.LBE15:
+ 453               	.LBE14:
+ 454               	.LBE13:
+ 455               	.LBE12:
+ 456               	.LM79:
+ 457 020a 1123      		tst r17
+ 458 020c 01F4      		brne .L42
+ 459               	.LM80:
+ 460 020e 88E0      		ldi r24,lo8(8)
+ 461 0210 61E0      		ldi r22,lo8(1)
+ 462 0212 00D0      		rcall rfm_22_write
+ 463               	.LM81:
+ 464 0214 88E0      		ldi r24,lo8(8)
+ 465 0216 60E0      		ldi r22,lo8(0)
+ 466 0218 00D0      		rcall rfm_22_write
+ 467               	.LM82:
+ 468 021a 8EE3      		ldi r24,lo8(62)
+ 469 021c 61E0      		ldi r22,lo8(1)
+ 470 021e 00D0      		rcall rfm_22_write
+ 471               	.LM83:
+ 472 0220 8FE7      		ldi r24,lo8(127)
+ 473 0222 6EEE      		ldi r22,lo8(-18)
+ 474 0224 00D0      		rcall rfm_22_write
+ 475               	.LVL22:
+ 476               	.L42:
+ 477               	.LM84:
+ 478 0226 87E0      		ldi r24,lo8(7)
+ 479               	.LVL23:
+ 480 0228 69E0      		ldi r22,lo8(9)
+ 481 022a 00D0      		rcall rfm_22_write
+ 482               	/* epilogue start */
+ 483               	.LM85:
+ 484 022c 1F91      		pop r17
+ 485               	.LVL24:
+ 486 022e 0F91      		pop r16
+ 487               	.LVL25:
+ 488 0230 0895      		ret
+ 489               	.LFE11:
+ 491               	.global	rfm_22_receive
+ 493               	rfm_22_receive:
+ 494               	.LFB12:
+ 495               	.LM86:
+ 496               	.LVL26:
+ 497 0232 0F93      		push r16
+ 498 0234 1F93      		push r17
+ 499               	/* prologue: function */
+ 500               	/* frame size = 0 */
+ 501 0236 182F      		mov r17,r24
+ 502               	.LM87:
+ 503 0238 8BE4      		ldi r24,lo8(75)
+ 504               	.LVL27:
+ 505 023a 00D0      		rcall rfm_22_read
+ 506 023c 082F      		mov r16,r24
+ 507               	.LVL28:
+ 508               	.LM88:
+ 509 023e 88E4      		ldi r24,lo8(72)
+ 510 0240 60E0      		ldi r22,lo8(header)
+ 511 0242 70E0      		ldi r23,hi8(header)
+ 512 0244 43E0      		ldi r20,lo8(3)
+ 513 0246 00D0      		rcall rfm_22_read_burst
+ 514               	.LM89:
+ 515 0248 60E0      		ldi r22,lo8(buffer)
+ 516 024a 70E0      		ldi r23,hi8(buffer)
+ 517 024c 610F      		add r22,r17
+ 518 024e 711D      		adc r23,__zero_reg__
+ 519 0250 8FE7      		ldi r24,lo8(127)
+ 520 0252 402F      		mov r20,r16
+ 521 0254 00D0      		rcall rfm_22_read_burst
+ 522               	.LM90:
+ 523 0256 88E0      		ldi r24,lo8(8)
+ 524 0258 62E0      		ldi r22,lo8(2)
+ 525 025a 00D0      		rcall rfm_22_write
+ 526               	.LM91:
+ 527 025c 88E0      		ldi r24,lo8(8)
+ 528 025e 60E0      		ldi r22,lo8(0)
+ 529 0260 00D0      		rcall rfm_22_write
+ 530               	.LM92:
+ 531 0262 87E0      		ldi r24,lo8(7)
+ 532 0264 65E0      		ldi r22,lo8(5)
+ 533 0266 00D0      		rcall rfm_22_write
+ 534               	.LM93:
+ 535 0268 802F      		mov r24,r16
+ 536               	/* epilogue start */
+ 537 026a 1F91      		pop r17
+ 538               	.LVL29:
+ 539 026c 0F91      		pop r16
+ 540               	.LVL30:
+ 541 026e 0895      		ret
+ 542               	.LFE12:
+ 544               		.data
+ 547               	C.3.1497:
+ 548 0000 73        		.byte	115
+ 549 0001 64        		.byte	100
+ 550 0002 00        		.byte	0
+ 553               	C.2.1496:
+ 554 0003 0C        		.byte	12
+ 555 0004 23        		.byte	35
+ 556 0005 50        		.byte	80
+ 559               	C.1.1495:
+ 560 0006 5E        		.byte	94
+ 561 0007 01        		.byte	1
+ 562 0008 5D        		.byte	93
+ 563 0009 86        		.byte	-122
+ 564 000a 03        		.byte	3
+ 565 000b 7E        		.byte	126
+ 568               	C.0.1494:
+ 569 000c D2        		.byte	-46
+ 570 000d DC        		.byte	-36
+ 571 000e D6        		.byte	-42
+ 644               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 rfm_22_23.c
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:2      *ABS*:0000003f __SREG__
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:5      *ABS*:00000034 __CCP__
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:18     .text:00000000 rfm_22_read_burst
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:66     .text:0000002a rfm_22_write_burst
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:112    .text:00000052 rfm_22_write
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:145    .text:0000006a rfm_22_read
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:182    .text:00000084 rfm_22_init
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:568    .data:0000000c C.0.1494
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:559    .data:00000006 C.1.1495
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:553    .data:00000003 C.2.1496
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:547    .data:00000000 C.3.1497
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:398    .text:000001d6 rfm_22_transmit
+C:\Users\Dltech\AppData\Local\Temp/ccluaOZm.s:493    .text:00000232 rfm_22_receive
+
+UNDEFINED SYMBOLS
+master_address
+device_address
+buffer
+header
+__do_copy_data

@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1382099545 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/adressed/configure.c
+	<avr/eeprom.h>
+	<util/delay.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1383025941 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/adressed/rfm_22_23.h
+
+1383034016 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/adressed/rs485.h
+
+1383026246 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/adressed/modem.h
+
+1382963960 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/adressed/main.c
+	<stdlib.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/sleep.h>
+	<util/delay.h>
+	<string.h>
+	<avr/eeprom.h>
+	<util/atomic.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1383026176 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/adressed/modem.c
+	<avr/eeprom.h>
+	<util/delay.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1383034018 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/adressed/rs485.c
+	<avr/interrupt.h>
+	<avr/io.h>
+	<util/delay.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+
+1383033912 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/adressed/rfm_22_23.c
+	<avr/io.h>
+	<util/delay.h>
+	"modem.h"
+	"rfm_22_23.h"
+

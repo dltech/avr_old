@@ -1,0 +1,64 @@
+# depslib dependency file v1.0
+1380881253 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/modem/firmware/Codeblocks/modem_firmware/main.c
+	<stdlib.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+	<string.h>
+	<avr/eeprom.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+	"route.h"
+
+1380882514 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/modem/firmware/Codeblocks/modem_firmware/rfm_22_23.h
+	<stdint.h>
+	"modem.h"
+
+1369770065 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/modem/firmware/Codeblocks/modem_firmware/rs485.h
+
+1370462456 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/modem/firmware/Codeblocks/modem_firmware/modem.h
+
+1380801770 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/modem/firmware/Codeblocks/modem_firmware/route.h
+
+1380881253 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/modem/firmware/Codeblocks/modem_firmware/modem.c
+	<avr/eeprom.h>
+	<util/delay.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+	"route.h"
+
+1380800960 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/modem/firmware/Codeblocks/modem_firmware/rfm_22_23.c
+	<avr/io.h>
+	<util/delay.h>
+	"rfm_22_23.h"
+	<stdlib.h>
+
+1380801770 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/modem/firmware/Codeblocks/modem_firmware/route.c
+	<avr/io.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+	"route.h"
+
+1380882514 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/Codeblocks/modem_firmware/rs485.c
+	<avr/interrupt.h>
+	<avr/io.h>
+	"rfm_22_23.h"
+	"rs485.h"
+	"modem.h"
+	"route.h"
+
+1380882514 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/Codeblocks/modem_firmware/rfm_22_23.h
+	<stdint.h>
+	"modem.h"
+
+1381136916 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/Codeblocks/modem_firmware/modem.h
+
+1381258858 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/Codeblocks/modem_firmware/rs485.h
+
+1381235488 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/Codeblocks/modem_firmware/route.h
+

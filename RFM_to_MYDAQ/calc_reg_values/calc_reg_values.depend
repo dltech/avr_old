@@ -1,0 +1,84 @@
+# depslib dependency file v1.0
+1418889338 source:c:\users\Михаил\yandexdisk-dltex\projects\rfm69\mydaq_rfm\calc_reg_values\main.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"rfm69.h"
+
+1418731301 
+
+1418891789 c:\users\Михаил\yandexdisk-dltex\projects\rfm69\mydaq_rfm\calc_reg_values\rfm69.h
+	"rfm69_table.h"
+	"rfm69_registers.h"
+
+1418889233 isters.h"
+
+1416819072 c:\users\Михаил\yandexdisk-dltex\projects\rfm69\mydaq_rfm\calc_reg_values\rfm69_table.h
+
+1416819057 c:\users\Михаил\yandexdisk-dltex\projects\rfm69\mydaq_rfm\calc_reg_values\rfm69_registers.h
+	"rfm69_table.h"
+	"rfm69.h"
+
+1418459787 source:c:\users\Михаил\yandexdisk-dltex\projects\rfm69\mydaq_rfm\calc_reg_values\rfm69.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"rfm69.h"
+
+1418891658 source:/home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/main.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"rfm69.h"
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"rfm69.h"
+
+1418889233 /home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/rfm69.h
+	"rfm69_table.h"
+	"rfm69_registers.h"
+	"rfm69_table.h"
+	"rfm69_registers.h"
+
+1418731301 /home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/rfm69_table.h
+
+1418731301 /home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/rfm69_registers.h
+	"rfm69_table.h"
+	"rfm69.h"
+	"rfm69_table.h"
+	"rfm69.h"
+
+1418731301 source:/home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/rfm69.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"rfm69.h"
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"rfm69.h"
+
+1418898930 source:/home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/main.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	<locale.h>
+	"rfm69.h"
+
+1418903266 /home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/rfm69.h
+	"rfm69_table.h"
+	"rfm69_registers.h"
+
+1418898744 /home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/rfm69_table.h
+
+1418731301 /home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/rfm69_registers.h
+	"rfm69_table.h"
+	"rfm69.h"
+
+1418731301 source:/home/dltech/gdrive/Projects/RFM69/mydaq_rfm/calc_reg_values/rfm69.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"rfm69.h"
+

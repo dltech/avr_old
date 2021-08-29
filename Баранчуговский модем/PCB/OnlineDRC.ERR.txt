@@ -1,0 +1,66 @@
+P-CAD Online DRC Error Log                                  Modem_1.9.7.2_reset.pcb
+
+======================================================================
+
+OnlineDRC.ERR.txt:
+
+NETLIST VIOLATIONS:
+
+
+0 warning(s) detected.
+0 error(s) detected.
+
+CLEARANCE VIOLATIONS:
+
+
+0 warning(s) detected.
+0 error(s) detected.
+
+WIDTH VIOLATIONS:
+
+
+0 warning(s) detected.
+0 error(s) detected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+
+15-May-13  09:02                                            Page    1
+

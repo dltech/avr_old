@@ -1,0 +1,811 @@
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=windows-1251">
+<title> FSK модуляция</title>
+	<meta name="Description" content="Частотно-манипулированные сигналы  FSK  (frequency shift key ) и  FSK  сигналы с непрерывной фазой  CPFSK  (continuous  phase FSK )">
+
+<meta name="Keywords" content="fsk, cpfsk, частотная манипуляция, чмн, манипуляция с непрерывной фазой, frequency shift key, continuous phase, fm модулятор, модуляция, частотный разнос, девиация частоты,  спектр fsk, индекс частотной манипуляции, индекс fsk, девиация фазы, фазовая траектория, фазовая диаграмма, векторное представление, бинарная последовательность, модулирующий сигнал, циклическая частота, манипуляция с памятью, без памяти">
+	<link rel="StyleSheet" type="text/css" href="fsk_files/styles.css">
+</head>
+
+<body lang="ru-RU" bgcolor="#bdbdbd">
+
+	<!-- Yandex.Metrika counter -->
+	<div style="display:none;"><script type="text/javascript">
+	(function(w, c) {
+	    (w[c] = w[c] || []).push(function() {
+	        try {
+	            w.yaCounter5473819 = new Ya.Metrika({id:5473819, enableAll: true, ut: 'noindex'});
+	        }
+	        catch(e) { }
+	    });
+	})(window, "yandex_metrika_callbacks");
+	</script></div>
+	<script src="fsk_files/watch.js" type="text/javascript" defer="defer"></script>
+	<noscript><div><img src="//mc.yandex.ru/watch/5473819?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+
+
+
+    <a name="r0"></a>
+	<div class="head">
+	</div>	
+
+    <table ,="" align="CENTER" cellpadding="0," cellspacing="0," height="100px" width="960px" background="fsk_files/title.png" border="0">
+		<tbody><tr width="960px">
+			<td height="70px">
+				
+            </td>
+		</tr>
+		<tr>
+			<td>
+				<table align="center" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+			                        <td align="center" width="16%">
+			                            <div class="MenuStyle"><a class="MenuLink" href="http://www.dsplib.ru/index.html">Главная </a></div>
+			                        </td>
+			                        <td align="center" width="17%">
+			                            <div class="MenuStyle"><a class="MenuLink" href="http://www.dsplib.ru/content.html">Статьи </a></div>
+			                        </td>
+			                        <td align="center" width="16%">
+			                            <div class="MenuStyle"><a class="MenuLink" href="http://www.dsplib.ru/prog.php">Программы </a></div>
+			                        </td>
+			                        <td align="center" width="17%">
+			                            <div class="MenuStyle"><a class="MenuLink" href="http://www.dsplib.ru/links.html">Полезные ссылки </a></div>
+			                        </td>
+			                        <td align="center" width="16%">
+			                            <div class="MenuStyle"><a class="MenuLink" href="http://www.dsplib.ru/guestbook.php">Гостевая книга</a></div>
+			                        </td>
+			                        <td align="center" width="17%">
+			                            <div class="MenuStyle"><a class="MenuLink" href="http://www.dsplib.ru/forum/index.php">Форум </a></div>
+			                        </td>
+					</tr>
+				</tbody></table>
+			</td><td>
+		</td></tr>
+	</tbody></table>
+
+	
+	<table ,="" align="CENTER" cellpadding="0" cellspacing="0" width="962px" border="0">
+	<tbody><tr valign="TOP">
+        <td ,="" width="2px" background="fsk_files/lb.bmp">
+        </td>
+		<td width="958px">
+            <table ,="" cellpadding="0" cellspacing="0" width="958px" border="0">
+                <tbody><tr valign="TOP">
+                    <td>
+                        <table ,="" cellpadding="10" cellspacing="0" width="100%" bgcolor="#FFFFFF" border="0">
+                            <tbody><tr>
+                                <td>
+                                                        
+                                                    
+                                    <!-- *******************************************************************************************************************-->
+                                    <!-- *********************************** СОДЕРЖАНИЕ СЮДА *********************************************-->                   
+                                                        
+                                    <div class="HeaderStyle" ,="" align="center">
+                                    Частотно-манипулированные
+									сигналы  FSK  (frequency 
+									shift key ) и  FSK  сигналы с
+									непрерывной фазой  CPFSK  (continuous  phase
+									FSK) 
+									</div>
+									<br>
+                                    <div class="TxtStyle" ,="" align="justify"><b>Содержание</b></div>
+                                    <div class="TxtStyle" ,="" align="justify"><a href="#r1">Введение</a></div>
+                                    <div class="TxtStyle" ,="" align="justify"><a href="#r2">FSK модуляция. Индекс FSK модуляции</a></div>
+                                    <div class="TxtStyle" ,="" align="justify"><a href="#r3">Cпектр FSK сигнала</a></div>
+                                    <div class="TxtStyle" ,="" align="justify"><a href="#r4">Частотная манипуляция без разрыва фазы (CPFSK)</a></div>
+                                    <div class="TxtStyle" ,="" align="justify"><a href="#r5">Векторная диаграмма CPFSK сигнала</a></div>
+                                    <div class="TxtStyle" ,="" align="justify"><a href="#r6">Выводы</a></div>
+                                    <br>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <a name="r1"></a>
+                                    <div class="TxtStyle" ,="" align="justify"><b>Введение</b></div>
+									<div class="TxtStyle" ,="" align="justify">Частотно-манипулированные
+									 FSK  сигналы одни из самых распространенных
+									в современной цифровой связи. Это обусловлено прежде всего простотой
+									их генерирования и приема, ввиду нечувствительности к начальной фазе.
+									В данной статье мы рассмотрим принцип формирования и параметры  FSK
+									 модуляции и одной из ее модификаций — CPFSK (FSK
+									 с непрерывной фазой).  В
+									русскоязычной литературе также встречается аббревиатура «ЧМн»
+									для обозначения частотно-манипулированных сигналов.</div>
+									<br>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <a name="r2"></a>
+                                    <div class="TxtStyle" ,="" align="justify"><b>FSK модуляция. Индекс FSK модуляции</b></div>
+									<div class="TxtStyle" ,="" align="justify">Для начала рассмотрим
+									двоичную  FSK  модуляцию, когда исходный
+									модулирующий сигнал 
+									<img src="fsk_files/fsk_html_25de6748.gif" name="Объект2" align="ABSMIDDLE" hspace="8">
+									представляет собой двоичную бинарную последовательность нулей и
+									единиц следующую с битовой скоростью 
+									<img src="fsk_files/fsk_html_5a0f32cb.gif" name="Объект1" align="ABSMIDDLE" hspace="8"> .
+									 Формирователь  FSK  сигнала и принцип
+									его функционирования можно условно представить, как это показано на
+									рисунке 1. 
+									</div>
+
+									<br>
+									<div class="IMAGE">
+									<img src="fsk_files/fsk_html_m756cb418.gif"><br>
+									Рисунок	1: Принцип формирования FSK сигнала
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">На рисунке 1 показано два
+									генератора, формирующие колебания 
+									<img src="fsk_files/fsk_html_m3eb4ad43.gif" name="Объект3" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_20260ea0.gif" name="Объект4" align="ABSMIDDLE" hspace="8">
+									на различных частотах (смотри поясняющие осциллограммы рисунка 1).
+									Также имеется электронный ключ, управляемый цифровым сигналом 
+									<img src="fsk_files/fsk_html_25de6748.gif" name="Объект5" align="ABSMIDDLE" hspace="8">,
+									таким образом, что при передаче логической «1»
+									на выход подается сигнал 
+									<img src="fsk_files/fsk_html_20260ea0.gif" name="Объект6" align="ABSMIDDLE" hspace="8">,
+									а при передаче логического «0» - сигнал 
+									<img src="fsk_files/fsk_html_m3eb4ad43.gif" name="Объект7" align="ABSMIDDLE" hspace="8">.
+									Таким образом, частота выходного сигнала «манипулируется»
+									в зависимости от битовой последовательности. Не смотря на простоту
+									приведенной схемы, она на практике не применяется, поскольку
+									требуется очень быстродействующий ключ с минимальным переходным
+									процессом, а также при произвольной начальной фазе генераторов
+									возможны скачки по фазе при смене символа, что в свою очередь
+									приводит к расширению спектра. На практике получила распространение
+									 FSK  модуляция с непрерывной фазой  CPFSK.
+									 Рассмотрим данный вид модуляции более подробно.  FSK
+									 сигналы являются частным случаем сигналов с частотной
+									модуляцией ( FM ) при модулирующем сигнале в
+									виде двоичной битовой последовательности 
+									<img src="fsk_files/fsk_html_25de6748.gif" name="Объект8" align="ABSMIDDLE" hspace="8">.
+									Таким образом, для модуляции   FSK  можно
+									использовать схему  <a href="http://www.dsplib.ru/content/pmfm/pmfm.html">FM  модулятора</a> на базе
+									<a href="http://www.dsplib.ru/content/quadmod/quadmod.html">универсального квадратурного модулятора</a>, как это показано на рисунке
+									2.</div>
+									<br>
+									<div class="IMAGE">									
+									<img src="fsk_files/fsk_html_m6ee1bd3f.gif" align="middle"><br>
+									Рисунок 2: Структурная схема формирования FSK сигнала на базе FM модулятора
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">Поясняющие графики работы
+									приведенной на рисунке 2 структурной схемы показаны на рисунке 3.</div>
+									
+									<br>
+									<div class="IMAGE">									
+									<img src="fsk_files/fsk_html_m777bab4a.gif" align="middle"><br>
+									Рисунок	3: Поясняющие графики работы FSK модулятора
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">На верхнем графике
+									показана исходная битовая последовательность 
+									<img src="fsk_files/fsk_html_25de6748.gif" name="Объект11" align="ABSMIDDLE" hspace="8">
+									следующая со скоростью 
+									<img src="fsk_files/fsk_html_504e5f94.gif" name="Объект9" align="ABSMIDDLE" hspace="8">
+									бод, т.е. длительность одного бита последовательности 
+									<img src="fsk_files/fsk_html_m43857f7e.gif" name="Объект14" align="ABSMIDDLE" hspace="8">.
+									Блок нормировки формирует сигнал 
+									<img src="fsk_files/fsk_html_68f4eb65.gif" name="Объект10" align="ABSMIDDLE" hspace="8">
+									с уровнем 
+									<img src="fsk_files/fsk_html_m40900c10.gif" name="Объект12" align="ABSMIDDLE" hspace="8">и
+									с нулевым средним, как это показано на среднем графике рисунка 3, при
+									этом форма сигнала сохраняется. Далее 
+									<img src="fsk_files/fsk_html_68f4eb65.gif" name="Объект13" align="ABSMIDDLE" hspace="8">
+									используется как модулирующий сигнал на входе  FM
+									 модулятора. Первым блоком  FM  модулятора
+									стоит интегратор, который интегрирует сигнал <img src="fsk_files/fsk_html_m5c553b8b.gif" name="Объект16" align="ABSMIDDLE" hspace="8">
+									в результате получается сигнал 
+									<img src="fsk_files/fsk_html_m1598795a.gif" name="Объект15" align="ABSMIDDLE" hspace="8">
+									в виде «пилы» как это показано на нижнем графике рисунка
+									3. Необходимо отметить, что при интегрировании импульс единичной
+									амплитуды на выходе интегратора будет иметь амплитуду 
+									<img src="fsk_files/fsk_html_1c3ff0cc.gif" name="Объект17" align="ABSMIDDLE" hspace="8">
+									После сигнал на выходе интегратора 
+									<img src="fsk_files/fsk_html_m1598795a.gif" name="Объект18" align="ABSMIDDLE" hspace="8">
+									усиливается в 
+									<img src="fsk_files/fsk_html_789de1da.gif" name="Объект19" align="ABSMIDDLE" hspace="8">
+									раз, где 
+									<img src="fsk_files/fsk_html_789de1da.gif" name="Объект20" align="ABSMIDDLE" hspace="8">
+									— частота девиации  FM  сигнала. При
+									рассмотрении  FM  сигналов говорилось, что
+									частота девиации задает полосу сигнала на выходе модулятора. При
+									цифровой модуляции частота девиации задает разнос частот манипуляции.
+									Представим 
+									<img src="fsk_files/fsk_html_789de1da.gif" name="Объект21" align="ABSMIDDLE" hspace="8">
+									в виде произведения:</div>
+									
+									<table cellpadding="4" cellspacing="0" width="100%" border="0">
+										<tbody><tr>
+												<td align="CENTER" width="89%">
+													<img src="fsk_files/fsk_html_1002c859.gif" name="Объект22" align="ABSMIDDLE" hspace="8">
+																	
+												</td>
+												<td align="RIGHT" width="11%">
+													(1)
+												</td>
+											</tr>
+										
+									</tbody></table>
+									<div class="TxtStyle0" ,="" align="justify">где 
+									<img src="fsk_files/fsk_html_125213c6.gif" name="Объект23" align="ABSMIDDLE" hspace="8">
+									носит название индекса  FSK  модуляции и
+									определяет во сколько раз разнос частот манипуляции превышает битовую
+									скорость, 
+									<img src="fsk_files/fsk_html_m311cbf6e.gif" name="Объект60" align="ABSMIDDLE" hspace="8">
+									— циклическая частота модулирующего сигнала,<img src="fsk_files/fsk_html_23fbc42b.gif" name="Объект66" align="ABSMIDDLE" hspace="8">
+									— частота повторения бита при чередовании нулей и единиц в
+									цифровом сигнале (в 2 раза ниже скорости передачи информации 
+									<img src="fsk_files/fsk_html_4b5491ec.gif" name="Объект67" align="ABSMIDDLE" hspace="8">). После усиления и задания девиации частоты производится формирование
+									квадратурных компонент 
+									<img src="fsk_files/fsk_html_m2a550302.gif" name="Объект24" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_515611dc.gif" name="Объект25" align="ABSMIDDLE" hspace="8">
+									и модуляция при помощи универсального квадратурного модулятора. 
+									</div>
+									<div class="TxtStyle" ,="" align="justify">Сделаем замечание. Смысл
+									сигнала на выходе интегратора ни что иное как мгновенная фаза  FSK
+									 сигнала. Поскольку на выходе интегратора фаза не имеет
+									разрывов, то формируемый таким образом  FSK  сигнал
+									называется  FSK  сигнал с непрерывной фазой
+									или  CPFSK.  Также в некоторой литературе
+									такой способ модуляции носит название модуляция с памятью, так как
+									интегратор «помнит» значения полученные ранее, в то время
+									как ключ на рисунке 1  « не помнит »
+									 свое положение в предыдущие моменты времени (модулятор на
+									рисунке 1 носит название модулятор без памяти).</div>
+									<br>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <a name="r3"></a>
+                                    <div class="TxtStyle" ,="" align="justify"><b>Cпектр  FSK сигнала</b></div>
+
+									<div class="TxtStyle" ,="" align="justify">Рассмотрим спектр  FSK
+									 сигнала .  <a href="http://www.dsplib.ru/content/fmspectr/fmspectr.html">Ранее</a> уже говорилось, что
+									спектр сигналов с угловой модуляцией в общем случае не выражается
+									аналитически. Однако в случае с бинарной последовательностью, можно
+									получить оценку спектра  FSK  сигналов следуя
+									следующим рассуждениям. Представим сигнал 
+									<img src="fsk_files/fsk_html_68f4eb65.gif" name="Объект26" align="ABSMIDDLE" hspace="8">
+									на входе  FM  модулятора в виде суммы двух
+									сигналов:</div>
+									
+									<table cellpadding="4" cellspacing="0" width="100%" border="0">
+										<tbody><tr>
+												<td align="CENTER" width="89%">
+													<img src="fsk_files/fsk_html_1a785599.gif" name="Объект27" align="ABSMIDDLE" hspace="8">
+																	
+												</td>
+												<td align="RIGHT" width="11%">
+													(2)
+												</td>
+											</tr>
+										
+									</tbody></table>
+									<div class="TxtStyle0" ,="" align="justify">где</div>
+									
+									<table cellpadding="4" cellspacing="0" width="100%" border="0">
+										<tbody><tr>
+												<td align="CENTER" width="89%">
+													<img src="fsk_files/fsk_html_m1e0b6c4c.gif" name="Objekt4" align="ABSMIDDLE" hspace="8">
+																	
+												</td>
+												<td align="RIGHT" width="11%">
+													(3)
+												</td>
+											</tr>
+										
+									</tbody></table>
+									<div class="TxtStyle" ,="" align="justify">Такое представление
+									графически показано на рисунке 4.</div>
+									
+									<br>
+									<div class="IMAGE">
+									<img src="fsk_files/fsk_html_5e5e971f.gif" align="middle"><br>
+									Рисунок 4: Представление модулирующего сигнала
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">Тогда  FSK
+									 сигнал можно представить в виде суммы сигналов 
+									<img src="fsk_files/fsk_html_m72bd1b55.gif" name="Объект29" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_23ce3445.gif" name="Объект30" align="ABSMIDDLE" hspace="8">:</div>
+									
+									<table cellpadding="4" cellspacing="0" width="100%" border="0">
+										<tbody><tr>
+												<td align="CENTER" width="89%">
+													<img src="fsk_files/fsk_html_mbe40c7.gif" name="Объект28" align="ABSMIDDLE" hspace="8">
+																	
+												</td>
+												<td align="RIGHT" width="11%">
+													(4)
+												</td>
+											</tr>
+										
+									</tbody></table>
+									<div class="TxtStyle" ,="" align="justify">Графически это показано на
+									рисунке 5.</div>
+									<br>
+									<div class="IMAGE">
+									<img src="fsk_files/fsk_html_24167454.gif" align="middle"><br>
+									Рисунок 5: Представление FSK сигнала
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">Таким образом, спектр  FSK
+									 сигнала 
+									<img src="fsk_files/fsk_html_7e76f8e8.gif" name="Объект33" align="ABSMIDDLE" hspace="8">
+									есть сумма спектров 
+									<img src="fsk_files/fsk_html_7c0ce434.gif" name="Объект34" align="ABSMIDDLE" hspace="8">
+									 сигналов 
+									<img src="fsk_files/fsk_html_m72bd1b55.gif" name="Объект31" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_23ce3445.gif" name="Объект32" align="ABSMIDDLE" hspace="8"> .
+									 Но согласно (4) 
+									<img src="fsk_files/fsk_html_m72bd1b55.gif" name="Объект35" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_23ce3445.gif" name="Объект36" align="ABSMIDDLE" hspace="8">
+									— перенесенные на соответствующие частоты сигналы 
+									<img src="fsk_files/fsk_html_m65e68462.gif" name="Объект38" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_m73f5efe4.gif" name="Объект37" align="ABSMIDDLE" hspace="8">,
+									которые в свою очередь представляют собой последовательность
+									импульсов длительности 
+									<img src="fsk_files/fsk_html_m159f59c7.gif" name="Объект39" align="ABSMIDDLE" hspace="8">
+									Поскольку битовая последовательность случайная, то спектральная
+									плотности 
+									<img src="fsk_files/fsk_html_7e7a411f.gif" name="Объект42" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_m74ee6ed1.gif" name="Объект43" align="ABSMIDDLE" hspace="8">
+									сигналов 
+									<img src="fsk_files/fsk_html_m65e68462.gif" name="Объект40" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_m73f5efe4.gif" name="Объект41" align="ABSMIDDLE" hspace="8">может
+									быть представлена, как это показано на рисунке 6. 
+									</div>
+									
+									<br>
+									<div class="IMAGE">
+									<img src="fsk_files/fsk_html_m4ee0f2cc.gif" align="middle"><br>
+									Рисунок	6: спектральная плотность случайного битового потока
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">Тогда спектры 
+									<img src="fsk_files/fsk_html_451f7421.gif" name="Объект44" align="ABSMIDDLE" hspace="8">и
+									<img src="fsk_files/fsk_html_m31c38a41.gif" name="Объект45" align="ABSMIDDLE" hspace="8">
+									сигналов 
+									<img src="fsk_files/fsk_html_m72bd1b55.gif" name="Объект46" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_23ce3445.gif" name="Объект47" align="ABSMIDDLE" hspace="8">,
+									а также результирующий спектр  FSK  сигнала
+									представлены рисунке 7.</div>
+
+									<br>
+									<div class="IMAGE">									
+									<img src="fsk_files/fsk_html_m2687f54b.gif" align="middle"><br>
+									Рисунок	7: Спектр FSK сигнала
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">Таким образом, мы получили
+									спектр  FSK  сигнала. Видно, что составляющие 
+									 FSK  сигнала разнесены на частоту девиации,
+									а согласно (1), частота девиации зависит от битовой скорости  
+									<img src="fsk_files/fsk_html_4b5491ec.gif" name="Объект48" align="ABSMIDDLE" hspace="8">и
+									индекса модуляции 
+									<img src="fsk_files/fsk_html_125213c6.gif" name="Объект49" align="ABSMIDDLE" hspace="8">.
+									При фиксированной битовой скорости составляющие спектра  FSK
+									 сигнала будут тем ближе, чем меньше индекс  FSK 
+									модуляции. На рисунке 8 показаны спектры  FSK
+									 сигнала при различном индексе модуляции.</div>
+									<br>
+
+									
+									<table width="100%">
+										<tbody><tr>
+											<td align="center">
+                                                <object type="image/svg+xml" name="" data="fsk_files/fsk8.svg" height="320px" width="420px">
+                                                <img src="fsk_files/fsk8.png" align="MIDDLE" border="0"><br>
+                                                <font color="#FF0000" size="2">Для просмотра SVG графики Вам необходимо обновить браузер</font>
+												 </object>
+											</td>
+											<td align="center">
+                                                <object type="image/svg+xml" name="" data="fsk_files/fsk5.svg" height="320px" width="420px">
+                                                <img src="fsk_files/fsk5.png" align="MIDDLE" border="0"><br>
+                                                <font color="#FF0000" size="2">Для просмотра SVG графики Вам необходимо обновить браузер</font>
+												 </object>
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+                                                <object type="image/svg+xml" name="" data="fsk_files/fsk2.svg" height="320px" width="420px">
+                                                <img src="fsk_files/fsk2.png" align="MIDDLE" border="0"><br>
+                                                <font color="#FF0000" size="2">Для просмотра SVG графики Вам необходимо обновить браузер</font>
+												 </object>
+											</td>
+											<td align="center">
+                                                <object type="image/svg+xml" name="" data="fsk_files/fsk1.svg" height="320px" width="420px">
+                                                <img src="fsk_files/fsk1.png" align="MIDDLE" border="0"><br>
+                                                <font color="#FF0000" size="2">Для просмотра SVG графики Вам необходимо обновить браузер</font>
+												 </object>
+											</td>
+										</tr>
+									</tbody></table>
+
+									<div class="IMAGE">
+									Рисунок 8: Спектры FSK сигнала при различном индексе модуляции
+									</div>
+									 <br>
+									
+									<div class="TxtStyle" ,="" align="justify">Из рисунка 8 следует, что
+									при уменьшении индекса  FSK  модуляции
+									составляющие  FSK  сигнала сдвигаются и при 
+									<img src="fsk_files/fsk_html_c8b4d90.gif" name="Объект50" align="ABSMIDDLE" hspace="8">
+									основные лепестки соприкасаются, а при 
+									<img src="fsk_files/fsk_html_ma36959.gif" name="Объект51" align="ABSMIDDLE" hspace="8">
+									перекрываются на половину. Таким образом, индекс модуляции задает
+									положение составляющих  FSK  вне зависимости
+									от несущей частоты и битовой скорости модулирующего сигнала.</div>
+									<div class="TxtStyle" ,="" align="justify">На рисунке представлен
+									спектр  FSK  и основные частотные
+									соотношения.</div>
+									
+									<br>
+									<div class="IMAGE">
+									<object type="image/svg+xml" name="" data="fsk_files/fskf.svg" height="320px" width="920px">
+                                    <img src="fsk_files/fskf.png" align="MIDDLE" border="0"><br>
+                                    <font color="#FF0000" size="2">Для просмотра SVG графики Вам необходимо обновить браузер</font>
+									 </object>
+									Рисунок	9: Основные частотные соотношения в спектре FSK
+									</div>
+									<br>									
+									
+									<div class="TxtStyle" ,="" align="justify">Параметр 
+									<img src="fsk_files/fsk_html_61beff04.gif" name="Объект52" align="ABSMIDDLE" hspace="8">
+									задает количество боковых лепестков между составляющими спектра.</div>
+									<br>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <a name="r4"></a>
+                                    <div class="TxtStyle" ,="" align="justify"><b>Частотная манипуляция без разрыва фазы (CPFSK)</b></div>
+									<div class="TxtStyle" ,="" align="justify">При передаче информации,
+									как правило, существуют ограничения на ширину спектра сигнала, поэтому
+									на практике используют схему модуляции  CPFSK  без
+									разрывов фазы и при малых значениях индекса модуляции 
+									<img src="fsk_files/fsk_html_m38ebf343.gif" name="Объект53" align="ABSMIDDLE" hspace="8"> .
+									 Спектр  CPFSK  сигнала при 
+									<img src="fsk_files/fsk_html_m124f0528.gif" name="Объект54" align="ABSMIDDLE" hspace="8">и
+									<img src="fsk_files/fsk_html_1e6721ef.gif" name="Объект55" align="ABSMIDDLE" hspace="8">
+									показан на рисунке 10 синим цветом (красным показан спектр  FSK
+									 с разрывом фазы).</div>
+									
+									<br>
+
+										<table width="100%">
+										<tbody><tr>
+											<td align="center">
+                                                <object type="image/svg+xml" name="" data="fsk_files/cpfsk2.svg" height="320px" width="420px">
+                                                <img src="fsk_files/cpfsk2.png" align="MIDDLE" border="0"><br>
+                                                <font color="#FF0000" size="2">Для просмотра SVG графики Вам необходимо обновить браузер</font>
+												 </object>
+											</td>
+											<td align="center">
+                                                <object type="image/svg+xml" name="" data="fsk_files/cpfsk1.svg" height="320px" width="420px">
+                                                <img src="fsk_files/cpfsk1.png" align="MIDDLE" border="0"><br>
+                                                <font color="#FF0000" size="2">Для просмотра SVG графики Вам необходимо обновить браузер</font>
+												 </object>
+											</td>
+										</tr>
+									</tbody></table>
+									<div class="IMAGE">
+									Рисунок	10: Спектр CPFSK сигнала при различных индексах модуляции
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">Из рисунка 10 хорошо
+									видно, что отсутствие разрывов фазы приводит к существенному снижению
+									максимального бокового лепестка на 6..8 дБ, а также скорость убывания
+									боковых лепестков возрастает. Таким образом, формирование  CPFSK
+									 сигнала на основе универсального квадратурного модулятора
+									(рисунок 2) гораздо предпочтительнее, чем на основе ключа.</div>
+									<br>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <a name="r5"></a>
+                                    <div class="TxtStyle" ,="" align="justify"><b>Векторная диаграмма  CPFSK  сигнала</b></div>
+									<div class="TxtStyle" ,="" align="justify">Рассмотрим теперь
+									векторную диаграмму  CPFSK  сигнала. Для
+									этого вспомним, что  CPFSK  сигнал является
+									частным случаем  FM  сигнала при цифровом
+									входном сигнале, поэтому его векторная диаграмма не отличается от
+									векторной диаграммы  FM  сигнала. Однако при
+									рассмотрении  FM  сигнала было введено
+									понятие девиации фазы, т.е. фазового набега на одном периоде
+									модулирующего сигнала. Рассмотрим девиацию фазы 
+									<img src="fsk_files/fsk_html_m7f48f318.gif" name="Объект56" align="ABSMIDDLE" hspace="8">
+									в случае  CPFSK  модуляции.</div>
+									<div class="TxtStyle" ,="" align="justify"> Из выражения (1) можно заметить, что</div>
+									
+									<table cellpadding="4" cellspacing="0" width="100%" border="0">
+										<tbody><tr>
+												<td align="CENTER" width="89%">
+													<img src="fsk_files/fsk_html_728bc79d.gif" name="Объект57" align="ABSMIDDLE" hspace="8">
+																	
+												</td>
+												<td align="RIGHT" width="11%">
+													(5)
+												</td>
+											</tr>
+										
+									</tbody></table>
+									<div class="TxtStyle" ,="" align="justify">Для расчета набега фазы
+									рассмотрим рисунок 11. 
+									</div>
+									<br>
+									<div class="IMAGE">
+									
+									<img src="fsk_files/fsk_html_31fbd694.gif" align="MIDDLE"><br>
+									Рисунок	11: Пояснения к расчету  фазового набега
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">Исходный нормированный
+									цифровой сигнал 
+									<img src="fsk_files/fsk_html_m5e887439.gif" name="Объект58" align="ABSMIDDLE" hspace="8">
+									показан синим цветом, зеленым показан сигнал на выходе интегратора 
+									<img src="fsk_files/fsk_html_23e4e604.gif" name="Объект59" align="ABSMIDDLE" hspace="8">,
+									а красным сигнал 
+									<img src="fsk_files/fsk_html_23e4e604.gif" name="Объект61" align="ABSMIDDLE" hspace="8">,
+									умноженный на частоту девиации. Тогда набег фазы на одном
+									информационном символе можно рассчитать следующим образом:</div>
+									
+									<table cellpadding="4" cellspacing="0" width="100%" border="0">
+										<tbody><tr>
+												<td align="CENTER" width="89%">
+													<img src="fsk_files/fsk_html_12014c14.gif" name="Объект62" align="ABSMIDDLE" hspace="8">
+																	
+												</td>
+												<td align="RIGHT" width="11%">
+													(6)
+												</td>
+											</tr>
+										
+									</tbody></table>
+									
+									<div class="TxtStyle" ,="" align="justify">Тогда с учетом (5) 
+									<img src="fsk_files/fsk_html_5b8c2519.gif" name="Объект63" align="ABSMIDDLE" hspace="8">
+									а с учетом (1) 
+									<img src="fsk_files/fsk_html_m8d1b18f.gif" name="Объект64" align="ABSMIDDLE" hspace="8">
+									и окончательно можно записать:</div>
+									
+									<table cellpadding="4" cellspacing="0" width="100%" border="0">
+										<tbody><tr>
+												<td align="CENTER" width="89%">
+													<img src="fsk_files/fsk_html_m6e0eb07a.gif" name="Объект65" align="ABSMIDDLE" hspace="8">
+												</td>
+												<td align="RIGHT" width="11%">
+													(7)
+												</td>
+											</tr>
+										
+									</tbody></table>
+									<div class="TxtStyle" ,="" align="justify">Таким образом, получили,
+									что набег фазы зависит от индекса модуляции 
+									<img src="fsk_files/fsk_html_m38ebf343.gif" name="Объект68" align="ABSMIDDLE" hspace="8">
+									и при 
+									<img src="fsk_files/fsk_html_ma36959.gif" name="Объект69" align="ABSMIDDLE" hspace="8"><img src="fsk_files/fsk_html_mc77518a.gif" name="Объект70" align="ABSMIDDLE" hspace="8"> .
+									 Необходимо сделать замечание. Под набегом фазы подразумевается
+									набег фазы на временном интервале 
+									<img src="fsk_files/fsk_html_m708eab12.gif" name="Объект71" align="ABSMIDDLE" hspace="8"> ,
+									 т.е. только на одном информационном символе. Если имеется
+									несколько информационных символов, то их суммарный набег зависит от
+									передаваемой информации и может принимать любое значение в интервале
+									от 
+									<img src="fsk_files/fsk_html_592eba7.gif" name="Объект72" align="ABSMIDDLE" hspace="8">
+									до 
+									<img src="fsk_files/fsk_html_58b45c59.gif" name="Объект73" align="ABSMIDDLE" hspace="8">
+									с шагом 
+									<img src="fsk_files/fsk_html_197537af.gif" name="Объект75" align="ABSMIDDLE" hspace="8">
+									где 
+									<img src="fsk_files/fsk_html_m61657df7.gif" name="Объект74" align="ABSMIDDLE" hspace="8">
+									— количество передаваемых символов цифровой информации.
+									Рассмотрим это подробнее. Пусть имеется 3 бита цифровой информации 
+									<img src="fsk_files/fsk_html_53b70282.gif" name="Объект76" align="ABSMIDDLE" hspace="8">,
+									где 
+									<img src="fsk_files/fsk_html_5824088c.gif" name="Объект77" align="ABSMIDDLE" hspace="8">
+									может принимать значения 0 или 1. Поведение <a href="http://www.dsplib.ru/content/quadmod/quadmod.html">вектора комплексной
+									огибающей</a> на плоскости для  CPFSK  сигнала
+									можно представить как 
+									</div>
+									
+									<table cellpadding="4" cellspacing="0" width="100%" border="0">
+										<tbody><tr>
+												<td align="CENTER" width="89%">
+													<img src="fsk_files/fsk_html_351bf21f.gif" name="Объект78" <="" td="" align="ABSMIDDLE" hspace="8">
+												</td><td align="RIGHT" width="11%">
+													(8)
+												</td>
+											</tr>
+										
+									</tbody></table>
+									<div class="TxtStyle" ,="" align="justify">Синфазная и квадратурная
+									компоненты получены согласно структурной схеме рисунка 2, а сигнал на
+									выходе интегратора 
+									<img src="fsk_files/fsk_html_m1598795a.gif" name="Объект79" align="ABSMIDDLE" hspace="8">
+									— ломаная линия как показано на рисунках 3 и 11.</div>
+									<div class="TxtStyle" ,="" align="justify">Необходимо заметить, что 
+									<img src="fsk_files/fsk_html_m10939659.gif" name="Объект80" align="ABSMIDDLE" hspace="8">
+									— ничто иное как фаза комплексной огибающей согласно (8),
+									линейно нарастает или убывает со скоростью 
+									<img src="fsk_files/fsk_html_2b319a58.gif" name="Объект81" align="ABSMIDDLE" hspace="8">
+									радиан на символ цифровой информации и при смене символа меняется
+									направление движения фазы комплексной огибающей , тогда при различных
+									комбинациях битового потока 
+									<img src="fsk_files/fsk_html_e77449c.gif" name="Объект82" align="ABSMIDDLE" hspace="8">
+									мы получим различные фазовые траектории, как показано на рисунке 12
+									для двух из восьми значений трех бит информации при 
+									<img src="fsk_files/fsk_html_1e6721ef.gif" name="Объект83" align="ABSMIDDLE" hspace="8">.</div>
+									<br>
+									<div class="IMAGE">
+									<img src="fsk_files/fsk_html_m348b2386.gif"><br>
+									Рисунок	12: Различные фазовые траектории
+									</div>
+									<br>
+									
+									<div class="TxtStyle" ,="" align="justify">Аналогично можно построить
+									для всех восьми комбинаций 
+									<img src="fsk_files/fsk_html_25de6748.gif" name="Объект84" align="ABSMIDDLE" hspace="8"> .
+									 Если все возможные фазовые траектории свести в одну диаграмму
+									то получится диаграмма представленная на рисунке 13.
+									Зеленым и черным показаны
+									траектории для 
+									<img src="fsk_files/fsk_html_m3f45a6b8.gif" name="Объект85" align="ABSMIDDLE" hspace="8">
+									и 
+									<img src="fsk_files/fsk_html_29b67fe4.gif" name="Объект86" align="ABSMIDDLE" hspace="8">,
+									соответствующие рисунку 12.</div>
+									<br>
+									<div class="IMAGE">
+									<img src="fsk_files/fsk_html_42ca3754.gif"><br>
+									Рисунок	13: Полная фазовая диаграмма для 3-х бит информации
+									</div> 
+									<br>
+									<br>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <a name="r6"></a>
+                                    <div class="TxtStyle" ,="" align="justify"><b>Выводы</b></div>
+									<div class="TxtStyle" ,="" align="justify">Таким
+									образом мы рассмотрели   FSK   и
+									  CPFSK   сигналы,
+									привели структурную схему   FSK   модулятора
+									на основе управляемого ключа, а также схему формирования   CPFSK
+									  на основе универсального квадратурного
+									модулятора. Было показано, что спектр   CPFSK
+									  сигнала обладает меньшим уровнем боковых
+									лепестков по сравнению с   FSK   сигналом,
+									что обусловлено непрерывной фазой сигнала. Подробно был рассмотрен
+									вопрос связанный с влиянием индекса модуляции на фазу комплексной
+									огибающей   CPFSK   сигнала.
+									В следующих разделах мы рассмотрим широко распространенный частный
+									случай   CPFSK   модуляции
+									—   MSK. </div>
+                                    <br>	
+                                    <div class="TxtStyle" ,="" align="justify"> Любые вопросы и пожелания вы можете оставить в  
+                                    <a href="http://www.dsplib.ru/guestbook.php">гостевой книге</a>, <a href="http://www.dsplib.ru/forum/index.php">на форуме</a>,
+                                    или прислать по электронной почте admin@dsplib.ru</div> 
+                                    <br>	
+                                    <hr align="CENTER" size="0" width="80%">
+                                    <div class="TxtStyle" ,="" align="justify"> 
+                                    <a href="#r0">Наверх</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.dsplib.ru/content.html">Вернуться к списку статей</a>
+                                    </div>
+                                    
+
+                                    <!-- *******************************************************************************************************************-->                    
+                                                           
+                                        
+                                </td>
+                            </tr>
+                        </tbody></table>		
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+        <td ,="" width="2px" background="fsk_files/rb.bmp">
+        </td>
+        
+	</tr>	
+	</tbody></table>
+	
+	<table ,="" align="CENTER" cellpadding="0" cellspacing="0" width="962px" border="0">
+        <tbody><tr>
+            <td width="18px">
+                <img src="fsk_files/bottom_left.png">
+            </td>
+            <td ,="" width="926px" background="fsk_files/bottom_bottom.png">
+                <div align="RIGHT">
+                    <script type="text/javascript" src="fsk_files/orphus.js"></script>
+                    <a title="Система Orphus" href="http://orphus.ru/" id="orphus" target="_blank"><img alt="Система Orphus" src="fsk_files/orphus.png" border="0"></a>
+                
+                    
+                    <!--LiveInternet counter--><script type="text/javascript"><!--
+                    document.write("<a href='http://www.liveinternet.ru/click' "+
+                    "target=_blank><img src='//counter.yadro.ru/hit?t44.2;r"+
+                    escape(document.referrer)+((typeof(screen)=="undefined")?"":
+                    ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                    screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+                    ";"+Math.random()+
+                    "' alt='' title='LiveInternet' "+
+                    "border='0' width='31' height='31'><\/a>")
+                    //--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img src="fsk_files/hit.gif" alt="" title="LiveInternet" height="31" width="31" border="0"></a><!--/LiveInternet-->
+
+					<script type="text/javascript" src="fsk_files/b.js"></script><script type="text/javascript">rmb_ki101('5myxn8fwzqv','','32','32',1,'ffffff','010020','54ff00');</script><a href="http://www.revolvermaps.com/?target=enlarge&amp;i=5myxn8fwzqv&amp;color=a00000&amp;m=1"><img src="fsk_files/32.png" alt="Map" style="border:0px;" height="32" width="32"></a>
+                 </div>   
+
+            </td>
+            <td width="18px">
+                <img src="fsk_files/bottom_right.png">
+            </td>
+        </tr>	
+	</tbody></table>
+    <div class="BottomStyle"> Любое копирование материалов сайта без разрешения автора запрещено.</div>
+    <div class="BottomStyle">Разработка и дизайн Бахурин Сергей.</div>
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

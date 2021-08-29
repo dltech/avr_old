@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1362220436 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/transmit/lcd.c
+	<inttypes.h>
+	<avr/io.h>
+	<avr/pgmspace.h>
+	"lcd.h"
+
+1369642589 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/transmit/lcd.h
+	<inttypes.h>
+	<avr/pgmspace.h>
+
+1382089128 source:/media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/transmit/rfm_22_23.c
+	<avr/io.h>
+	<util/delay.h>
+	"rfm_22_23.h"
+	<stdlib.h>
+
+1382089111 /media/dltech/2CFC9779FC973BD0/Google Диск/Projects/Ленин/firmware/transmit/rfm_22_23.h
+	<stdint.h>
+

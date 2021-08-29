@@ -1,0 +1,243 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 696E 6974 		.string	"init failed"
+  18      2066 6169 
+  18      6C65 6400 
+  19               	.LC1:
+  20 000c 696E 6974 		.string	"init success"
+  20      2073 7563 
+  20      6365 7373 
+  20      00
+  21               		.text
+  22               	.global	main
+  24               	main:
+  25               	.LFB6:
+  26               	.LM1:
+  27 0000 0F93      		push r16
+  28 0002 1F93      		push r17
+  29 0004 CF93      		push r28
+  30 0006 DF93      		push r29
+  31               	/* prologue: function */
+  32               	/* frame size = 0 */
+  33               	.LM2:
+  34 0008 88EB      		ldi r24,lo8(3000)
+  35 000a 9BE0      		ldi r25,hi8(3000)
+  36               	.LVL0:
+  37               	.LBB18:
+  38               	.LBB19:
+  39               	.LBB20:
+  40               	.LBB21:
+  41               	.LM3:
+  42 000c 28EC      		ldi r18,lo8(200)
+  43 000e 30E0      		ldi r19,hi8(200)
+  44               	.L2:
+  45 0010 F901      		movw r30,r18
+  46               	.LVL1:
+  47               	/* #APP */
+  48               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  49 0012 3197      		1: sbiw r30,1
+  50 0014 01F4      		brne 1b
+  51               	 ;  0 "" 2
+  52               	/* #NOAPP */
+  53               	.LBE21:
+  54               	.LBE20:
+  55               	.LM4:
+  56 0016 0197      		sbiw r24,1
+  57               	.LM5:
+  58 0018 01F4      		brne .L2
+  59               	.LBE19:
+  60               	.LBE18:
+  61               	.LM6:
+  62 001a 8CE0      		ldi r24,lo8(12)
+  63               	.LVL2:
+  64 001c 00D0      		rcall lcd_init
+  65               	.LVL3:
+  66               	.LM7:
+  67 001e 00D0      		rcall rfm_22_init
+  68 0020 182F      		mov r17,r24
+  69               	.LVL4:
+  70               	.LM8:
+  71 0022 00D0      		rcall lcd_home
+  72               	.LM9:
+  73 0024 1123      		tst r17
+  74 0026 01F0      		breq .L3
+  75 0028 80E0      		ldi r24,lo8(.LC0)
+  76 002a 90E0      		ldi r25,hi8(.LC0)
+  77 002c 00C0      		rjmp .L16
+  78               	.L3:
+  79               	.LM10:
+  80 002e 80E0      		ldi r24,lo8(.LC1)
+  81 0030 90E0      		ldi r25,hi8(.LC1)
+  82               	.L16:
+  83 0032 00D0      		rcall lcd_puts
+  84               	.LM11:
+  85 0034 85E0      		ldi r24,lo8(5)
+  86 0036 83BF      		out 83-32,r24
+  87               	.LM12:
+  88 0038 87E0      		ldi r24,lo8(7)
+  89 003a 65E0      		ldi r22,lo8(5)
+  90 003c 00D0      		rcall rfm_22_write
+  91               	.L5:
+  92               	.LM13:
+  93 003e 83E0      		ldi r24,lo8(3)
+  94 0040 00D0      		rcall rfm_22_read
+  95 0042 81FF      		sbrs r24,1
+  96 0044 00C0      		rjmp .L5
+  97               	.LM14:
+  98 0046 87E0      		ldi r24,lo8(7)
+  99 0048 65E0      		ldi r22,lo8(5)
+ 100 004a 00D0      		rcall rfm_22_write
+ 101               	.L6:
+ 102               	.LM15:
+ 103 004c 83E0      		ldi r24,lo8(3)
+ 104 004e 00D0      		rcall rfm_22_read
+ 105 0050 81FF      		sbrs r24,1
+ 106 0052 00C0      		rjmp .L6
+ 107               	.LM16:
+ 108 0054 80E0      		ldi r24,lo8(0)
+ 109 0056 00D0      		rcall rfm_22_read_packet
+ 110               	.LM17:
+ 111 0058 90E0      		ldi r25,lo8(0)
+ 112 005a 60E0      		ldi r22,lo8(disp)
+ 113 005c 70E0      		ldi r23,hi8(disp)
+ 114 005e 4AE0      		ldi r20,lo8(10)
+ 115 0060 50E0      		ldi r21,hi8(10)
+ 116 0062 00D0      		rcall utoa
+ 117               	.LM18:
+ 118 0064 00D0      		rcall lcd_clrscr
+ 119               	.LM19:
+ 120 0066 80E0      		ldi r24,lo8(disp)
+ 121 0068 90E0      		ldi r25,hi8(disp)
+ 122 006a 00D0      		rcall lcd_puts
+ 123               	.LM20:
+ 124 006c 80E0      		ldi r24,lo8(0)
+ 125 006e 61E0      		ldi r22,lo8(1)
+ 126 0070 00D0      		rcall lcd_gotoxy
+ 127 0072 C0E0      		ldi r28,lo8(0)
+ 128 0074 D0E0      		ldi r29,hi8(0)
+ 129               	.LBB22:
+ 130               	.LBB23:
+ 131               	.LBB24:
+ 132               	.LBB25:
+ 133               	.LM21:
+ 134 0076 08EC      		ldi r16,lo8(200)
+ 135 0078 10E0      		ldi r17,hi8(200)
+ 136               	.L9:
+ 137               	.LBE25:
+ 138               	.LBE24:
+ 139               	.LBE23:
+ 140               	.LBE22:
+ 141               	.LM22:
+ 142 007a FE01      		movw r30,r28
+ 143 007c E050      		subi r30,lo8(-(buffer))
+ 144 007e F040      		sbci r31,hi8(-(buffer))
+ 145               	.LM23:
+ 146 0080 8081      		ld r24,Z
+ 147 0082 90E0      		ldi r25,lo8(0)
+ 148 0084 60E0      		ldi r22,lo8(disp)
+ 149 0086 70E0      		ldi r23,hi8(disp)
+ 150 0088 4AE0      		ldi r20,lo8(10)
+ 151 008a 50E0      		ldi r21,hi8(10)
+ 152 008c 00D0      		rcall utoa
+ 153               	.LM24:
+ 154 008e 80E0      		ldi r24,lo8(disp)
+ 155 0090 90E0      		ldi r25,hi8(disp)
+ 156 0092 00D0      		rcall lcd_puts
+ 157               	.LM25:
+ 158 0094 80E2      		ldi r24,lo8(32)
+ 159 0096 00D0      		rcall lcd_putc
+ 160               	.LM26:
+ 161 0098 8C2F      		mov r24,r28
+ 162 009a 65E0      		ldi r22,lo8(5)
+ 163 009c 00D0      		rcall __udivmodqi4
+ 164 009e 9923      		tst r25
+ 165 00a0 01F4      		brne .L7
+ 166 00a2 80E6      		ldi r24,lo8(-5536)
+ 167 00a4 9AEE      		ldi r25,hi8(-5536)
+ 168               	.LVL5:
+ 169               	.L8:
+ 170               	.LBB29:
+ 171               	.LBB28:
+ 172               	.LBB27:
+ 173               	.LBB26:
+ 174               	.LM27:
+ 175 00a6 F801      		movw r30,r16
+ 176               	.LVL6:
+ 177               	/* #APP */
+ 178               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 179 00a8 3197      		1: sbiw r30,1
+ 180 00aa 01F4      		brne 1b
+ 181               	 ;  0 "" 2
+ 182               	/* #NOAPP */
+ 183               	.LBE26:
+ 184               	.LBE27:
+ 185               	.LM28:
+ 186 00ac 0197      		sbiw r24,1
+ 187               	.LM29:
+ 188 00ae 01F4      		brne .L8
+ 189               	.LBE28:
+ 190               	.LBE29:
+ 191               	.LM30:
+ 192 00b0 00D0      		rcall lcd_clrscr
+ 193               	.LVL7:
+ 194               	.L7:
+ 195 00b2 2196      		adiw r28,1
+ 196               	.LM31:
+ 197 00b4 C034      		cpi r28,64
+ 198 00b6 D105      		cpc r29,__zero_reg__
+ 199 00b8 01F4      		brne .L9
+ 200               	.LM32:
+ 201 00ba 80E0      		ldi r24,lo8(0)
+ 202 00bc 90E0      		ldi r25,hi8(0)
+ 203               	/* epilogue start */
+ 204 00be DF91      		pop r29
+ 205 00c0 CF91      		pop r28
+ 206 00c2 1F91      		pop r17
+ 207               	.LVL8:
+ 208 00c4 0F91      		pop r16
+ 209 00c6 0895      		ret
+ 210               	.LFE6:
+ 212               		.comm buffer,256,1
+ 213               		.comm header,3,1
+ 214               		.comm master_address,1,1
+ 215               		.comm device_address,1,1
+ 216               		.comm disp,4,1
+ 241               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Dltech\AppData\Local\Temp/ccnsQq5Z.s:2      *ABS*:0000003f __SREG__
+C:\Users\Dltech\AppData\Local\Temp/ccnsQq5Z.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Dltech\AppData\Local\Temp/ccnsQq5Z.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Dltech\AppData\Local\Temp/ccnsQq5Z.s:5      *ABS*:00000034 __CCP__
+C:\Users\Dltech\AppData\Local\Temp/ccnsQq5Z.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Dltech\AppData\Local\Temp/ccnsQq5Z.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Dltech\AppData\Local\Temp/ccnsQq5Z.s:24     .text:00000000 main
+                            *COM*:00000004 disp
+                            *COM*:00000100 buffer
+                            *COM*:00000003 header
+                            *COM*:00000001 master_address
+                            *COM*:00000001 device_address
+
+UNDEFINED SYMBOLS
+lcd_init
+rfm_22_init
+lcd_home
+lcd_puts
+rfm_22_write
+rfm_22_read
+rfm_22_read_packet
+utoa
+lcd_clrscr
+lcd_gotoxy
+lcd_putc
+__udivmodqi4
+__do_copy_data
+__do_clear_bss
